@@ -32,11 +32,10 @@ public class SprayES : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		#if UNITY_ANDROID
 		sprayES();
-		#endif
-	}
+	}	
 	
+#if !UNITY_STANDALONE
 	void sprayES()
 	{
 		for(int touch = 0; touch < Input.touchCount; touch++)
@@ -60,6 +59,27 @@ public class SprayES : MonoBehaviour
 		    }
 		}
 	}
+#else
+	void sprayES()
+	{ 
+		if (Input.GetMouseButtonDown(0)) 
+		{
+            Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Color color = getRandomColor();
+			
+			for(int i = 0; i < 360; i += 360/totES)
+			{
+				EnergyShape es = createES(point);
+				
+				es.destination = getPosition(point,i,maxDistance);
+				es.color = color;
+				es.timeToCenter = speed;
+			}
+			
+			social.checkSprayCount(++sprayCount);
+        }		
+	}
+#endif
 	
 	EnergyShape createES(Vector2 position)
 	{

@@ -300,7 +300,7 @@ public class GameManager : MonoBehaviour
 	{
 		currentEvoShape.animation.Play("EvoShapeDeath");
 		
-		#if !UNITY_STANDALONE_WIN
+		#if !UNITY_STANDALONE
 		Handheld.Vibrate();
 		#endif
 				

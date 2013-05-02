@@ -29,7 +29,7 @@ public class EvoShapeController : MonoBehaviour
 	{
 		if(!manager.disableInputs)
 		{
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE
 			transform.Rotate(0,0,Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);		
 #elif UNITY_ANDROID
 			switch(inputMode)
