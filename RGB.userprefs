@@ -1,7 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\SprayES.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\EvoShape.cs">
     <Files>
+      <File FileName="Assets\Script\EvoShape.cs" Line="93" Column="25" />
       <File FileName="Assets\Script\SprayES.cs" Line="67" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
