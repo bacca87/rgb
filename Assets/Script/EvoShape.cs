@@ -90,7 +90,7 @@ public class EvoShape : MonoBehaviour
 			manager.totalESMissed++;
 			audio.PlayOneShot(wrong);			
 			
-			#if !UNITY_STANDALONE_WIN
+			#if !UNITY_STANDALONE
 			Handheld.Vibrate();
 			#endif
 			
