@@ -90,6 +90,7 @@ public class Spawner : MonoBehaviour
 		public float timeToCenter;
 		public int count;
 		public float spawnTime;
+		public int verse;
 	}
 	
 	private List<ESInfo> spawnBuffer = new List<ESInfo>();
@@ -161,6 +162,7 @@ public class Spawner : MonoBehaviour
 			es.moveType = info.movetype;
 			es.timeToCenter = info.timeToCenter;
 			es.isFast = info.timeToCenter == timeToCenter.fast ? true : false;
+			es.spiralAngularSpeed = es.spiralAngularSpeed * info.verse; // verse è 1 o -1 quindi determina il verso di rotazione
 		}
 	}
 	
@@ -175,6 +177,7 @@ public class Spawner : MonoBehaviour
 			info.movetype = getRandomMoveType();
 			info.timeToCenter = getRandomTimeToCenter();
 			info.count = getRandomBurst();
+			info.verse = getRandomVerse();
 			
 			if(init)
 			{
@@ -233,6 +236,16 @@ public class Spawner : MonoBehaviour
 			return Random.Range(minBurst, maxBurst);
 		else 
 			return 1;
+	}
+	
+	int getRandomVerse()
+	{
+		float random = Random.Range(0.0f, 100.0f);
+		
+		if(random <= 50.0f)
+			return 1;
+		else 
+			return -1;
 	}
 	
 	EnergyShape createES(Vector2 position)
