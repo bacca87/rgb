@@ -21,25 +21,10 @@ public class RGBSocial : MonoBehaviour
 	
 	static bool runOnce = true;
 	
-	void OnGUI()
-	{
-		GUIStyle style1 = new GUIStyle();
-		style1.fontSize = 18;
-		style1.normal.textColor = Color.white;
-		
-		GUIContent time = new GUIContent();		
-		time.text = "Time: " + totalGameTime;
-		
-		GUIContent catched = new GUIContent();
-		catched.text = "esCatched: " + esCatched;
-		
-		GUIContent completed = new GUIContent();
-		completed.text = "Completed: " + completedGames;
-		
-		GUI.Label(new Rect(0,40,100,50), time, style1);
-		GUI.Label(new Rect(0,60,100,50), catched, style1);
-		GUI.Label(new Rect(0,80,100,50), completed, style1);
-	}
+	GUIStyle guiStyle1 = new GUIStyle();
+	GUIContent time = new GUIContent();		
+	GUIContent catched = new GUIContent();
+	GUIContent completed = new GUIContent();
 	
 	void Start()
 	{
@@ -70,7 +55,24 @@ public class RGBSocial : MonoBehaviour
 	
 			Swarm.init(SwarmConsts.App.APP_ID, SwarmConsts.App.APP_AUTH);
 		}
+		
+		//Debug GUI
+		guiStyle1.fontSize = 18;
+		guiStyle1.normal.textColor = Color.white;	
 	}
+
+#if DEBUG_GUI
+	void OnGUI()
+	{
+		time.text = "Time: " + totalGameTime;
+		catched.text = "esCatched: " + esCatched;
+		completed.text = "Completed: " + completedGames;
+		
+		GUI.Label(new Rect(0,40,100,50), time, guiStyle1);
+		GUI.Label(new Rect(0,60,100,50), catched, guiStyle1);
+		GUI.Label(new Rect(0,80,100,50), completed, guiStyle1);
+	}
+#endif
 		
 	void load()
 	{

@@ -53,6 +53,7 @@ public class SprayES : MonoBehaviour
 					es.destination = getPosition(point,i,maxDistance);
 					es.color = color;
 					es.timeToCenter = speed;
+					es.rigidbody.isKinematic = true;
 				}
 				
 				social.checkSprayCount(++sprayCount);
@@ -74,6 +75,7 @@ public class SprayES : MonoBehaviour
 				es.destination = getPosition(point,i,maxDistance);
 				es.color = color;
 				es.timeToCenter = speed;
+				es.rigidbody.isKinematic = true;
 			}
 			
 			social.checkSprayCount(++sprayCount);
