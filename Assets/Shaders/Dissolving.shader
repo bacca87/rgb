@@ -15,7 +15,7 @@ Shader "Custom Shaders/Dissolving"
 		Cull Off
 		CGPROGRAM
 		//if you're not planning on using shadows, remove "addshadow" for better performance
-		#pragma surface surf Lambert
+		#pragma surface surf Lambert addshadow
 		struct Input 
 		{
 			float2 uv_MainTex;
