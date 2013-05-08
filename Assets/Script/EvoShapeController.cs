@@ -14,7 +14,8 @@ public class EvoShapeController : MonoBehaviour
 	
 	public float speed = 1;
 	public bool isActive = true;
-	public InputMode inputMode = InputMode.SWIPE;
+	public InputMode inputMode = InputMode.ROTATION;
+	private Vector3 previousTouchPosition = Vector3.zero;
 	
 	private GameManager manager;
 		
@@ -47,19 +48,18 @@ public class EvoShapeController : MonoBehaviour
 				
 			case InputMode.ROTATION:
 			{
-				//if there was a touch and the first touch's phase represents a finger moving on the screen, manage that movement.
-				if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) 
+				if (Input.GetTouch(0).phase == TouchPhase.Began) 
 				{
-				//apply rotation given by x swipe
-					if(Input.GetTouch(0).position.y < 240)
-						transform.Rotate(Vector3.forward * Input.GetTouch(0).deltaPosition.x * Time.deltaTime * speed);
-					else transform.Rotate(-Vector3.forward * Input.GetTouch(0).deltaPosition.x * Time.deltaTime * speed);
-				// apply rotation given by y swipe
-					if(Input.GetTouch(0).position.x > 400)
-						transform.Rotate(Vector3.forward * Input.GetTouch(0).deltaPosition.y * Time.deltaTime * speed);
-					else transform.Rotate(-Vector3.forward * Input.GetTouch(0).deltaPosition.y * Time.deltaTime * speed);
-				// TO DO: adjust values basing on screen width, height and on the position of the object on the screen
-				// OR: rotate making the object always look to the point pressed by the user
+					previousTouchPosition = camera.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0.0f));
+			    }
+				
+				if (Input.GetTouch(0).phase == TouchPhase.Moved) 
+				{
+					Vector3 touchPosition = camera.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0.0f));;
+					Vector2 diff = touchPosition - previousTouchPosition;
+					float angle = Mathf.Atan2(diff.x, diff.y) * Mathf.Rad2Deg;
+					transform.RotateAround(transform.position, Vector3.up, angle);
+					previousTouchPosition = touchPosition;
 		        }
 			}
 			break;
