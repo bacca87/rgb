@@ -14,7 +14,11 @@ public class EvoShapeController : MonoBehaviour
 	
 	public float speed = 1;
 	public bool isActive = true;
-	public InputMode inputMode = InputMode.SWIPE;
+	public InputMode inputMode = InputMode.ROTATION;
+	
+	private Vector3 touchBeganRotation;
+   	private Vector2 rotationAxis;
+   	private float touchBeganAngle;
 	
 	private GameManager manager;
 		
@@ -30,7 +34,13 @@ public class EvoShapeController : MonoBehaviour
 		if(!manager.disableInputs)
 		{
 #if UNITY_STANDALONE
-			transform.Rotate(0,0,Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);		
+			//transform.Rotate(0,0,Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);
+			Vector3 touchPosition = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));;
+			Vector2 diff = touchPosition - previousTouchPosition;
+			float angle = Mathf.Atan2(diff.x, diff.y) * Mathf.Rad2Deg;
+			transform.RotateAround(transform.position, Vector3.up, angle);
+			previousTouchPosition = touchPosition;
+			
 #elif UNITY_ANDROID
 			switch(inputMode)
 			{
@@ -40,26 +50,28 @@ public class EvoShapeController : MonoBehaviour
 				{
 		            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 					float deltaMove = Mathf.Abs(touchDeltaPosition.x) > Mathf.Abs(touchDeltaPosition.y)? touchDeltaPosition.x : touchDeltaPosition.y;				
-		            transform.Rotate(0, 0, -deltaMove); //da decidere se limitare la velocità Mathf.Clamp(-deltaMove * speed, -speed, speed)
+		            transform.Rotate(0, 0, -deltaMove); 
 		        }
 			}
 			break;
 				
 			case InputMode.ROTATION:
 			{
-				//if there was a touch and the first touch's phase represents a finger moving on the screen, manage that movement.
+				if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
+				{
+					touchBeganRotation = transform.eulerAngles;
+   					rotationAxis = Camera.main.WorldToScreenPoint(transform.position);
+   					Vector2 position = Input.GetTouch(0).position - rotationAxis;
+   					touchBeganAngle = Mathf.Atan2(position.y, position.x);
+			    }
+				
 				if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) 
 				{
-				//apply rotation given by x swipe
-					if(Input.GetTouch(0).position.y < 240)
-						transform.Rotate(Vector3.forward * Input.GetTouch(0).deltaPosition.x * Time.deltaTime * speed);
-					else transform.Rotate(-Vector3.forward * Input.GetTouch(0).deltaPosition.x * Time.deltaTime * speed);
-				// apply rotation given by y swipe
-					if(Input.GetTouch(0).position.x > 400)
-						transform.Rotate(Vector3.forward * Input.GetTouch(0).deltaPosition.y * Time.deltaTime * speed);
-					else transform.Rotate(-Vector3.forward * Input.GetTouch(0).deltaPosition.y * Time.deltaTime * speed);
-				// TO DO: adjust values basing on screen width, height and on the position of the object on the screen
-				// OR: rotate making the object always look to the point pressed by the user
+					Vector2 position = Input.GetTouch(0).position - rotationAxis;
+    				float angle = Mathf.Atan2(position.y, position.x);
+   					Vector3 rotation = touchBeganRotation;
+    				rotation.z = -(rotation.z - (angle - touchBeganAngle) * Mathf.Rad2Deg);
+   					transform.eulerAngles = rotation;
 		        }
 			}
 			break;
