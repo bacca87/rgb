@@ -34,12 +34,21 @@ public class EvoShapeController : MonoBehaviour
 		if(!manager.disableInputs)
 		{
 #if UNITY_STANDALONE
-			//transform.Rotate(0,0,Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);
-			Vector3 touchPosition = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));;
-			Vector2 diff = touchPosition - previousTouchPosition;
-			float angle = Mathf.Atan2(diff.x, diff.y) * Mathf.Rad2Deg;
-			transform.RotateAround(transform.position, Vector3.up, angle);
-			previousTouchPosition = touchPosition;
+			if (Input.GetMouseButtonDown(0)) 
+			{
+				touchBeganRotation = transform.eulerAngles;
+   				rotationAxis = Camera.main.WorldToScreenPoint(transform.position);
+   				Vector2 position = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - rotationAxis;
+   				touchBeganAngle = Mathf.Atan2(position.y, position.x);
+			}	
+			else if (Input.GetMouseButton(0)) 
+			{
+				Vector2 position = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - rotationAxis;
+    			float angle = Mathf.Atan2(position.y, position.x);
+   				Vector3 rotation = touchBeganRotation;
+    			rotation.z = -(rotation.z - (angle - touchBeganAngle) * Mathf.Rad2Deg);
+   				transform.eulerAngles = rotation;
+		    }
 			
 #elif UNITY_ANDROID
 			switch(inputMode)
