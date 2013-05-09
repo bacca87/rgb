@@ -36,21 +36,15 @@ public class EvoShapeController : MonoBehaviour
 #if UNITY_STANDALONE
 			if (Input.GetMouseButtonDown(0)) 
 			{
-				Debug.Log("TOUCH PHASE BEGAN");
 				touchBeganRotation = -transform.eulerAngles;
    				rotationAxis = Camera.main.WorldToScreenPoint(transform.position);
    				Vector2 position = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - rotationAxis;
-				Debug.Log (position);
    				touchBeganAngle = Mathf.Atan2(position.y, position.x);
-				Debug.Log (touchBeganAngle);
 			}	
 			else if (Input.GetMouseButton(0)) 
 			{
-				Debug.Log("TOUCH PHASE MOVED");
 				Vector2 position = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - rotationAxis;
-				Debug.Log (position);
     			float angle = Mathf.Atan2(position.y, position.x);
-				Debug.Log(angle);
    				Vector3 rotation = touchBeganRotation;
     			rotation.z = -(rotation.z - (angle - touchBeganAngle) * Mathf.Rad2Deg);
    				transform.eulerAngles = rotation;
