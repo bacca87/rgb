@@ -11,40 +11,75 @@ public enum MoveType
 [RequireComponent(typeof(Rigidbody))]
 public class EnergyShape : MonoBehaviour 
 {
-	public Color color = CustomColor.Red;
-	public MoveType moveType = MoveType.Normal;
-	public float moveSpeed = 0;
-	public float timeToCenter = 10;
-	public float rotationSpeed = 5;
-	public float sleepTime = 0;
-	public bool stop = false;
-	public bool isFast = false;
-	public Vector3 destination = Vector3.zero;
+	public Color color { get; set; }
+	public MoveType moveType { get; set; }
+	public float moveSpeed { get; set; }
+	public float timeToCenter { get; set; }
+	public float rotationSpeed { get; set; }
+	public float sleepTime { get; set; }
+	public bool stop { get; set; }
+	public bool isFast { get; set; }
+	public Vector3 destination { get; set; }
 	
 	// Spiral variables
-	public float spiralAngularSpeed = 1;
+	public float spiralAngularSpeed { get; set; }
 	
 	// SineWave variables
-	public float sinusAmplitude = 1;
-	public float sinusFrequency = 1;
-	public float originalAngle = 0;
+	public float sinusAmplitude { get; set; }
+	public float sinusFrequency { get; set; }
+	public float originalAngle { get; set; }
 	
 	// Common variables
-	private float angle = 0;
-	private float distance = 0;
-	private float startTime = 0;
-	private TrailRenderer trailRenderer = null;
-	private bool isPaused = false;
+	private float angle { get; set; }
+	private float distance { get; set; }
+	private float startTime { get; set; }
+	private TrailRenderer trailRenderer { get; set; }
+	private bool isPaused { get; set; }
 	
 	// Use this for initialization
-	void Start() 
+	void Awake() 
+	{
+		// Trail renderer init
+		trailRenderer = GetComponent<TrailRenderer>();
+		Initialize();
+	}
+	
+	//Inizializza tutti i valori di default
+	public void Initialize()
+	{
+		color = CustomColor.Red;
+		moveType = MoveType.Normal;
+		moveSpeed = 1;
+		timeToCenter = 10;
+		rotationSpeed = 5;
+		sleepTime = 0;
+		stop = false;
+		isFast = false;
+		destination = Vector3.zero;
+		
+		// Spiral variables
+		spiralAngularSpeed = 40;
+		
+		// SineWave variables
+		sinusAmplitude = 15;
+		sinusFrequency = 3;
+		originalAngle = 0;
+		
+		// Common variables
+		angle = 0;
+		distance = 0;
+		startTime = 0;
+		isPaused = false;
+	}
+	
+	//prepara l'ES a partire
+	public void Prepare()
 	{
 		// Init variables
 		stop = false;
+		renderer.material.color = color;
 		
 		// Trail renderer init
-		renderer.material.color = color;
-		trailRenderer = GetComponent<TrailRenderer>();		
 		if(!isFast) trailRenderer.enabled = false;
 		
 		// Recalculate distance from center 

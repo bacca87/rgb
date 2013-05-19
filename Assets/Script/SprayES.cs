@@ -54,6 +54,8 @@ public class SprayES : MonoBehaviour
 					es.color = color;
 					es.timeToCenter = speed;
 					es.rigidbody.isKinematic = true;
+					
+					es.Prepare();
 				}
 				
 				social.checkSprayCount(++sprayCount);

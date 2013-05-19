@@ -50,6 +50,7 @@
      <Compile Include="Assets\Script\EvoShapeController.cs" />
      <Compile Include="Assets\Script\GUIOverlay.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\ObjectPool.cs" />
      <Compile Include="Assets\Script\RGBSocial.cs" />
      <Compile Include="Assets\Script\Rotate.cs" />
      <Compile Include="Assets\Script\ScrollingCredits.cs" />

@@ -78,11 +78,7 @@ public class EvoShape : MonoBehaviour
 			manager.totalESCatched++;
 			audio.PlayOneShot(good);
 			
-			//esplosione es			
-			GameObject explosion = Instantiate(explosionPrefab, point.point, 
-				Quaternion.FromToRotation(Vector3.forward, collision.collider.transform.position.normalized)) as GameObject;
-			explosion.particleSystem.startColor = es.color;
-			Destroy(explosion, explosion.particleSystem.duration);
+			StartCoroutine(esExplosionEffect(es.color, point, collision));
 		}
 		else
 		{
@@ -97,6 +93,19 @@ public class EvoShape : MonoBehaviour
 			if(!animation.isPlaying) animation.Play("Vibrate");
 		}
 		
-		Destroy(collision.gameObject);
+		ObjectPool.Instance.PoolObject(collision.gameObject);
+	}
+	
+	IEnumerator esExplosionEffect(Color color, ContactPoint point, Collision collision)
+	{
+		//esplosione es			
+		GameObject explosion = ObjectPool.Instance.GetObjectForType("ESExplosionEffect", true);
+		explosion.transform.position = point.point;
+		explosion.transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.collider.transform.position.normalized);
+		explosion.particleSystem.startColor = color;
+		
+		yield return new WaitForSeconds(explosion.particleSystem.duration);
+		
+		ObjectPool.Instance.PoolObject(explosion);
 	}
 }

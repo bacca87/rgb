@@ -135,14 +135,12 @@ public class UIMainMenu : MonoBehaviour
 	
 	void onTouchSplashScreen(UIButton sender)
 	{
-		Debug.Log("Splash Screen premuto");
 		removeSplashScreen();
 		createMainMenuPage();
 	}
 	
 	void onTouchPlayButton(UIButton sender)
 	{
-		Debug.Log("Bottone PLAY premuto");
 		removeMainMenuPage();
 		removeAudioButton();
 		createLoadingScreen();
@@ -161,7 +159,6 @@ public class UIMainMenu : MonoBehaviour
 		
 	void onTouchInfoButton(UIButton sender)
 	{
-		Debug.Log("Bottone info premuto");
 		removeMainMenuPage();
 		createInfoPage();
 		social.checkInfoRead();
@@ -169,15 +166,12 @@ public class UIMainMenu : MonoBehaviour
 	
 	void onTouchQuitButton(UIButton sender)
 	{
-		Debug.Log("Bottone QUIT premuto");
 		social.save();
 		Application.Quit();
 	}
 	
 	void onTouchBackButton(UIButton sender)
-	{
-		Debug.Log("Bottone BACK premuto");
-		
+	{	
 		removeInfoPage();
 		createMainMenuPage();
 	}
@@ -240,8 +234,6 @@ public class UIMainMenu : MonoBehaviour
 	
 	void createMainMenuPage()
 	{
-		Debug.Log("Create MainMenu");
-
 		// Aggiungere sprite con logo/scritta RGB grande
 		
 		createAudioButton();
@@ -272,7 +264,6 @@ public class UIMainMenu : MonoBehaviour
 	
 	void removeMainMenuPage()
 	{
-		Debug.Log("Remove MainMenu");
 		playButton.destroy();
 		infoButton.destroy();
 		swarmButton.destroy();
@@ -289,78 +280,27 @@ public class UIMainMenu : MonoBehaviour
 	
 	void removeAudioButton()
 	{
-		Debug.Log("Remove audioButton");
 		audioButton.destroy();
 	}
 	
 	void createInfoPage()
 	{		
-		Debug.Log("Create OptionsMenu");
-		
 		// Back button
 		backButton = UIButton.create( "back.png", "back.png", 0, 0 );
 		backButton.onTouchUp += onTouchBackButton;	
 		backButton.positionFromBottomLeft(0.01f, 0.01f);
-		/*
-		creditsScrollableContainer = new UIScrollableVerticalLayout(0);
-//		creditsScrollableContainer.alignMode = UIAbstractContainer.UIContainerAlignMode.Center;
-		creditsScrollableContainer.setSize( Screen.width * 0.5f, Screen.height * 3.0f );
-		creditsScrollableContainer.positionFromTopLeft(0.0f, 0.25f);
-		creditsLogo = UI.firstToolkit.addSprite("splash.png", 0, 0);
-		creditsLogo.positionFromTop(0.0f);
-		infoText = textManager.addTextInstance("RGB Copyright 2013 NOME GRUPPO\n" +
-			"VERSION 1.0\n" +
-			"In alphabetical order:\n" +
-			"\nDesigners, Developers, Marketing and so on...\n" +
-			"Alessandro Maroso\n" +
-			"Marco Baccarani\n" +
-			"\n3D Modeler\n" +
-			"Marco Giacobbo\n" +
-			"\n2D Artist\n" +
-			"nigger\n" +
-			"\nSound Designer & Music\n" +
-			"nigger\n" +
-			"\nMarketing & PR\n" +
-			"Alessandro Maroso\n" +
-			"Marco Baccarani\n" +
-			"\nTesters\n" +
-			"Luca Verrascina\n" +
-			"\nSpecial Greetings To\n" +
-			"Our families\n" +
-			"UNITY3D\n" +
-			"The fans of RGB\n"
-			, 0, 0);
-		UISpacer spacer1= new UISpacer(Screen.width/2, Screen.height);
-		UISpacer spacer2 = new UISpacer(Screen.width/2, Screen.height);
-		UISpacer spacer3 = new UISpacer(Screen.width/2, Screen.height);
-		UISpacer spacer4 = new UISpacer(Screen.width/2, Screen.height);
-		infoText.parentUIObject = spacer1;
-		infoText.positionFromBottom(-1.0f);
-		infoText.alignMode = UITextAlignMode.Center;
-		
-		creditsScrollableContainer.addChild(creditsLogo, spacer1, spacer2, spacer3, spacer4);
-		
-		// Animazione
-		//infoText.positionFrom(1.0f, new Vector3(-Screen.width, infoText.position.y, infoText.position.z), Easing.Quartic.easeIn); 
-		*/
-		
+				
 		creditsObject = Instantiate(creditsPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 	}
 	
 	void removeInfoPage()
 	{
-		Debug.Log("Remove InfoMenu");
-		//creditsLogo.destroy();
 		backButton.destroy();
 		Destroy(creditsObject);
-		//infoText.destroy();
-		//creditsScrollableContainer.Clear();
 	}
 	
 	void createSplashScreen()
 	{
-		Debug.Log("Create Splash Screen");
-		
 		splashScreenButton = UIButton.create( "splash.png", "splash.png", 0, 0 );
 		splashScreenButton.onTouchUp += onTouchSplashScreen;
 		splashScreenButton.positionCenter();
@@ -371,15 +311,12 @@ public class UIMainMenu : MonoBehaviour
 	
 	void removeSplashScreen()
 	{
-		Debug.Log("Remove Splash Screen");		
 		splashScreenButton.destroy();
 		splashText.destroy();
 	}
 	
 	void createLoadingScreen()
 	{
-		Debug.Log("Create Loading Screen");
-		
 		//rgbMasterText = infoTextManager.addTextInstance("Bacca is now the RGB master!!!", 0, 0);
 		//rgbMasterText.positionCenter();
 		
@@ -395,7 +332,6 @@ public class UIMainMenu : MonoBehaviour
 	
 	public void removeLoadingScreen()
 	{
-		Debug.Log("remove Loading Screen");
 		loadingText.destroy();
 	}
 	

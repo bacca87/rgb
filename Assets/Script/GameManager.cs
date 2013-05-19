@@ -35,24 +35,11 @@ public class GameManager : MonoBehaviour
 	public Combo combo = new Combo();
 	
 	[System.Serializable]
-	public class EvoShapePrefabs
-	{
-		public GameObject triangle;
-		public GameObject square;
-		public GameObject pentagon;
-		public GameObject hexagon;
-		public GameObject heptagon;
-		public GameObject octagon;
-	}
-	public EvoShapePrefabs evoShapePrefabs = new EvoShapePrefabs();
-	
-	[System.Serializable]
 	public class Explosion
 	{
 		public float radius = 11;
 		public float power = 200;
 		public float esDestroyTime = 3;
-		public GameObject evoExplosionPrefab;
 		public Vector2 position = Vector2.zero;
 	}
 	public Explosion explosion = new Explosion();
@@ -127,7 +114,7 @@ public class GameManager : MonoBehaviour
 		social = (RGBSocial)FindObjectOfType(typeof(RGBSocial));
 		
 		currentShape = firstShape;
-		currentEvoShape = Instantiate(evoShapePrefabs.triangle, Vector3.zero, Quaternion.identity) as GameObject;
+		currentEvoShape = ObjectPool.Instance.GetObjectForType("Evo3", true);		
 	}
 	
 	// Update is called once per frame
@@ -264,15 +251,15 @@ public class GameManager : MonoBehaviour
 			yield return new WaitForSeconds(1.5f);
 			evoshape.animation.Stop("FastRotate");
 			
-			explosionEffect();
-			Destroy(currentEvoShape);
-			currentEvoShape = Instantiate(getEvoShapePrefab(currentShape), Vector3.zero, Quaternion.identity) as GameObject;
+			StartCoroutine(explosionEffect());
+			ObjectPool.Instance.PoolObject(currentEvoShape); //elimino vecchia evo
+			currentEvoShape = ObjectPool.Instance.GetObjectForType(getEvoShapePrefab(currentShape), true);//setto nuova evo
 		}
 		
 		isEvolving = false;
 	}
 	
-	void explosionEffect()
+	IEnumerator explosionEffect()
 	{
 		//effetto esplosione che spazza via tutte le es
 		Collider[] colliders = Physics.OverlapSphere(explosion.position, explosion.radius);
@@ -288,12 +275,27 @@ public class GameManager : MonoBehaviour
 				
 			es.stop = true;
 			hit.rigidbody.AddExplosionForce(explosion.power, explosion.position, explosion.radius);
-			Destroy(hit.gameObject, explosion.esDestroyTime);
 		}
 		
-		GameObject explosionObj = Instantiate(explosion.evoExplosionPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		GameObject explosionObj = ObjectPool.Instance.GetObjectForType("EvoExplosionEffect", true);
 		explosionObj.particleSystem.startColor = CustomColor.List[(int)currentShape-1];
-		Destroy(explosionObj, explosionObj.particleSystem.duration);
+		
+		yield return new WaitForSeconds(explosionObj.particleSystem.duration);
+		
+		for(int i = 0; i < colliders.Length; i++)
+		{
+			Collider hit = colliders[i];
+			
+			if(!hit) continue;
+			
+			EnergyShape es = hit.GetComponent<EnergyShape>();
+			
+			if(!es) continue;
+			
+			ObjectPool.Instance.PoolObject(hit.gameObject);
+		}
+		
+		ObjectPool.Instance.PoolObject(explosionObj);
 	}
 	
 	IEnumerator endGameEffect()
@@ -311,20 +313,20 @@ public class GameManager : MonoBehaviour
 		showScore = true;
 	}
 	
-	GameObject getEvoShapePrefab(Shape shape)
+	string getEvoShapePrefab(Shape shape)
 	{
 		switch(shape)
 		{
 		case Shape.Square:
-			return evoShapePrefabs.square;
+			return "Evo4";
 		case Shape.Pentagon:
-			return evoShapePrefabs.pentagon;			
+			return "Evo5";			
 		case Shape.Hexagon:
-			return evoShapePrefabs.hexagon;			
+			return "Evo6";
 		case Shape.Heptagon:
-			return evoShapePrefabs.heptagon;			
+			return "Evo7";
 		case Shape.Octagon:
-			return evoShapePrefabs.octagon;			
+			return "Evo8";
 		default:
 			return null;
 		}

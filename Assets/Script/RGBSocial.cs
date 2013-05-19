@@ -19,42 +19,37 @@ public class RGBSocial : MonoBehaviour
 	
 	static bool loggedIn = false;
 	
-	static bool runOnce = true;
-	
 	GUIStyle guiStyle1 = new GUIStyle();
 	GUIContent time = new GUIContent();		
 	GUIContent catched = new GUIContent();
 	GUIContent completed = new GUIContent();
 	
-	void Start()
+	void Awake()
 	{
-		if(runOnce)
+		SwarmLoginManager.addLoginListener(delegate(int status) 
 		{
-			SwarmLoginManager.addLoginListener(delegate(int status) 
+			if (status == SwarmLoginManager.USER_LOGGED_IN) 
 			{
-				if (status == SwarmLoginManager.USER_LOGGED_IN) 
-				{
-					loggedIn = true;
-				
-					load();
-					checkPaidVersion();
-				} 
-				else if (status == SwarmLoginManager.LOGIN_STARTED) 
-				{
-				// The player has started logging in
-				} 
-				else if (status == SwarmLoginManager.LOGIN_CANCELED) 
-				{
-				// The player has cancelled the login
-				} 
-				else if (status == SwarmLoginManager.USER_LOGGED_OUT) 
-				{
-					loggedIn = false;
-				}
-			});
-	
-			Swarm.init(SwarmConsts.App.APP_ID, SwarmConsts.App.APP_AUTH);
-		}
+				loggedIn = true;
+			
+				load();
+				checkPaidVersion();
+			} 
+			else if (status == SwarmLoginManager.LOGIN_STARTED) 
+			{
+			// The player has started logging in
+			} 
+			else if (status == SwarmLoginManager.LOGIN_CANCELED) 
+			{
+			// The player has cancelled the login
+			} 
+			else if (status == SwarmLoginManager.USER_LOGGED_OUT) 
+			{
+				loggedIn = false;
+			}
+		});
+
+		Swarm.init(SwarmConsts.App.APP_ID, SwarmConsts.App.APP_AUTH);
 		
 		//Debug GUI
 		guiStyle1.fontSize = 18;

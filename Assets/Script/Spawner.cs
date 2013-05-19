@@ -12,18 +12,6 @@ public enum Positioning
 public class Spawner : MonoBehaviour 
 {
 	[System.Serializable]
-	public class EnergyShapePrefabs
-	{
-		public GameObject triangle;
-		public GameObject square;
-		public GameObject pentagon;
-		public GameObject hexagon;
-		public GameObject heptagon;
-		public GameObject octagon;
-	}
-	public EnergyShapePrefabs energyShapePrefabs = new EnergyShapePrefabs();
-	
-	[System.Serializable]
 	public class Rates
 	{
 		[System.Serializable]
@@ -163,6 +151,8 @@ public class Spawner : MonoBehaviour
 			es.timeToCenter = info.timeToCenter;
 			es.isFast = info.timeToCenter == timeToCenter.fast ? true : false;
 			es.spiralAngularSpeed = es.spiralAngularSpeed * info.verse; // verse è 1 o -1 quindi determina il verso di rotazione
+			
+			es.Prepare(); //reinizializza l'ES nel caso sia stata riutilizzata dal pool
 		}
 	}
 	
@@ -250,14 +240,19 @@ public class Spawner : MonoBehaviour
 	
 	EnergyShape createES(Vector2 position)
 	{
-		GameObject bulletObj = Instantiate(getEnergyShapePrefab(manager.currentShape), position, Quaternion.identity) as GameObject;
+		GameObject bulletObj = ObjectPool.Instance.GetObjectForType("EnergyShape", false);
+		bulletObj.transform.position = position;
+		bulletObj.transform.rotation = Quaternion.identity;
 				
 		if(manager.endGame) 
 			Destroy(bulletObj, timeToCenter.normal * 2); //alla fine del gioco autodistruggo le es dopo 20 secondi per non sovraccaricare la memoria
 		else
 			manager.totalESSpawned++; // for every ES created, not just every spawn procedure executed (can spawn multiple ES at a time)
 		
-		return bulletObj.GetComponent<EnergyShape>();
+		EnergyShape es = bulletObj.GetComponent<EnergyShape>();
+		es.Initialize(); //rinizializzo l'es per quando viene ripescata dal pool
+		
+		return es;
 	}
 	
 	float getRandomAngle()
@@ -276,27 +271,6 @@ public class Spawner : MonoBehaviour
 	Color getRandomColor()
 	{	
 		return CustomColor.List[Random.Range(0, (int)manager.currentShape)];
-	}
-	
-	GameObject getEnergyShapePrefab(Shape shape)
-	{
-		switch(shape)
-		{
-		case Shape.Triangle:
-			return energyShapePrefabs.triangle;
-		case Shape.Square:
-			return energyShapePrefabs.square;
-		case Shape.Pentagon:
-			return energyShapePrefabs.pentagon;
-		case Shape.Hexagon:
-			return energyShapePrefabs.hexagon;
-		case Shape.Heptagon:
-			return energyShapePrefabs.heptagon;			
-		case Shape.Octagon:
-			return energyShapePrefabs.octagon;
-		default:
-			return null;
-		}
 	}
 	
 	EnergyShape[] standard(int burst = 1)
