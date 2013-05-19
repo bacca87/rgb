@@ -1,149 +1,3 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>10.0.20506</ProductVersion>
-	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{90986C21-9E8C-8BAC-937F-58FC9FAF1FE2}</ProjectGuid>
-	<OutputType>Library</OutputType>
-	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
-	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-	<FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	<DebugSymbols>true</DebugSymbols>
-	<DebugType>full</DebugType>
-	<Optimize>false</Optimize>
-	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_GENERICS;UNITY_ANDROID_API;ENABLE_CLOTH;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;UNITY_4_0_0;UNITY_4_0;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE;DEBUG_GUI</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<DebugType>pdbonly</DebugType>
-	<Optimize>true</Optimize>
-	<OutputPath>Temp\bin\Release\</OutputPath>
-	<DefineConstants>TRACE</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
-  </PropertyGroup>
-  <ItemGroup>
-	<Reference Include="System" />
-    <Reference Include="System.XML" />
-	<Reference Include="System.Core" />
-	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-	</Reference>
-  </ItemGroup>
-  <ItemGroup>
-     <Compile Include="Assets\Script\CustomColor.cs" />
-     <Compile Include="Assets\Script\EnergyShape.cs" />
-     <Compile Include="Assets\Script\EvoShape.cs" />
-     <Compile Include="Assets\Script\EvoShapeController.cs" />
-     <Compile Include="Assets\Script\GUIOverlay.cs" />
-     <Compile Include="Assets\Script\GameManager.cs" />
-     <Compile Include="Assets\Script\ObjectPool.cs" />
-     <Compile Include="Assets\Script\RGBSocial.cs" />
-     <Compile Include="Assets\Script\Rotate.cs" />
-     <Compile Include="Assets\Script\ScrollingCredits.cs" />
-     <Compile Include="Assets\Script\ShowFps.cs" />
-     <Compile Include="Assets\Script\Spawner.cs" />
-     <Compile Include="Assets\Script\SprayES.cs" />
-     <Compile Include="Assets\Script\SwarmConsts.cs" />
-     <Compile Include="Assets\Script\UIMainMenu.cs" />
-     <Compile Include="Assets\Test\DestructibleObject.cs" />
-     <Compile Include="Assets\Test\LegacyGui.cs" />
-     <Compile Include="Assets\Test\LoadingScreen.cs" />
-     <Compile Include="Assets\Test\MainMenu.cs" />
-     <Compile Include="Assets\Test\Menu2D\Menu2DButton.cs" />
-     <Compile Include="Assets\Test\Menu2D\Menu2DManager.cs" />
-     <Compile Include="Assets\Test\Menu2D\Menu2DPage.cs" />
-     <Compile Include="Assets\Test\Menu2D\Menu2DSliderIndicator.cs" />
-     <Compile Include="Assets\Test\ScoreoidManager.cs" />
-     <Compile Include="Assets\Test\SplitMeshIntoTriangles.cs" />
-     <Compile Include="Assets\Test\SwarmTest.cs" />
-     <Compile Include="Assets\Test\UIMainMenuOLD.cs" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_store_category.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_cancel_button.xml" />
-     <None Include="Assets\Resources\font.txt" />
-     <None Include="Assets\Plugins\Android\res\drawable\popup_background_rect.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\green_button.xml" />
-     <None Include="Assets\Plugins\SwarmUnityPluginStructure.txt" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_friends.xml" />
-     <None Include="Assets\Plugins\UIToolkit\Shaders\UIToolkit Premultiplied Alpha.shader" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_featured_app_row.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_inbox_row.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\popup_header_background.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\offline_error_background.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_lost_password.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_app_row.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\header_background.xml" />
-     <None Include="Assets\Plugins\Android\res\values\colors.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_header.xml" />
-     <None Include="Assets\Plugins\Android\res\values\strings.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\swarm_background.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\sub_header_button.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_friends_row.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_leaderboard_row.xml" />
-     <None Include="Assets\Plugins\Android\res\values\styles.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_header_external.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_inventory.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_thread_row_self.xml" />
-     <None Include="Assets\Plugins\SwarmUnityREADME.txt" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_list.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\row_background.xml" />
-     <None Include="Assets\Shaders\Dissolving.shader" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_thread_row_other.xml" />
-     <None Include="Assets\Plugins\UIToolkit\Shaders\UIToolkit Alpha Enabled (Default).shader" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_get_coins.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_list_section_header.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\contextual_grey_background.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_store_row.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\blue_button.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_buy_button.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_header.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_upgrade_guest.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_store_category_row.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_purchase_popup.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_login.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_webview.xml" />
-     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\coin_provider_button.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\message_speech_bubble_background.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\footer_background.xml" />
-     <None Include="Assets\Resources\font2x.txt" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_loading_popup.xml" />
-     <None Include="Assets\Resources\mainmenu_texturepacker.txt" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_load_more.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_dashboard_row.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\grey_button.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_settings.xml" />
-     <None Include="Assets\Plugins\UIToolkit\Shaders\UIToolkit No Alpha.shader" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_leaderboard_list.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_featured_app_popup.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_create_account.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_thread.xml" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_store.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_tophalf.xml" />
-     <None Include="Assets\Plugins\Android\res\drawable\footer_button_background.xml" />
-     <None Include="Assets\Resources\mainmenu_texturepacker2x.txt" />
-     <None Include="Assets\Plugins\Android\res\layout\swarm_achievement_row.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{D3CF0DA7-88B2-540D-9AAA-1CE2AA447C17}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-=======
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -151,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6C6F64DB-BE26-D6BD-A825-D9D029E8F75E}</ProjectGuid>
+    <ProjectGuid>{90986C21-9E8C-8BAC-937F-58FC9FAF1FE2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>
@@ -165,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_0;UNITY_4_0;UNITY_STANDALONE_OSX;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_GENERICS;UNITY_ANDROID_API;ENABLE_CLOTH;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;UNITY_4_0_0;UNITY_4_0;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE;DEBUG_GUI</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -184,10 +38,10 @@
     <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +152,7 @@
     <Compile Include="Assets\Script\EvoShapeController.cs" />
     <Compile Include="Assets\Script\GUIOverlay.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\ObjectPool.cs" />
     <Compile Include="Assets\Script\RGBSocial.cs" />
     <Compile Include="Assets\Script\Rotate.cs" />
     <Compile Include="Assets\Script\ScrollingCredits.cs" />
@@ -400,12 +255,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{CAD4942C-7EC1-0EC7-145C-42225E00369D}</Project>
+      <Project>{D3CF0DA7-88B2-540D-9AAA-1CE2AA447C17}</Project>
       <Name>Assembly-CSharp-firstpass-vs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
->>>>>>> 6f0bb0808586894c75af2722c184b021bf01eb25
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

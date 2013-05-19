@@ -5,6 +5,10 @@ Project("{889574AE-BACD-A6BF-D3E5-34E2B49B8028}") = "RGB", "Assembly-CSharp-firs
 EndProject
 Project("{889574AE-BACD-A6BF-D3E5-34E2B49B8028}") = "RGB", "Assembly-CSharp.csproj", "{90986C21-9E8C-8BAC-937F-58FC9FAF1FE2}"
 EndProject
+Project("{889574AE-BACD-A6BF-D3E5-34E2B49B8028}") = "RGB", "Assembly-CSharp-Editor.csproj", "{57C6E425-7EAB-20C5-A699-0D6BD4ACE273}"
+EndProject
+Project("{889574AE-BACD-A6BF-D3E5-34E2B49B8028}") = "RGB", "Assembly-UnityScript.unityproj", "{C13DBD30-D67F-2E9C-8933-A2CFAEBD81D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +23,19 @@ Global
 		{90986C21-9E8C-8BAC-937F-58FC9FAF1FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90986C21-9E8C-8BAC-937F-58FC9FAF1FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90986C21-9E8C-8BAC-937F-58FC9FAF1FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C6E425-7EAB-20C5-A699-0D6BD4ACE273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C6E425-7EAB-20C5-A699-0D6BD4ACE273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C6E425-7EAB-20C5-A699-0D6BD4ACE273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C6E425-7EAB-20C5-A699-0D6BD4ACE273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C13DBD30-D67F-2E9C-8933-A2CFAEBD81D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C13DBD30-D67F-2E9C-8933-A2CFAEBD81D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C13DBD30-D67F-2E9C-8933-A2CFAEBD81D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C13DBD30-D67F-2E9C-8933-A2CFAEBD81D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																									GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> 95ef5a3c485d89ca1f6a45a951071998ff0b127e
