@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{7171FCAE-6988-9332-775A-94C6B7293610}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_0;UNITY_4_0;UNITY_STANDALONE_OSX;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Orthello\Examples\1 - Paralax scrolling FilledSprite\JSExample1.js" />
+     <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\JSBlock2.js" />
+     <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\JSExample2.js" />
+     <Compile Include="Assets\Orthello\Examples\2 - Moving collidable sprites\JSStar2.js" />
+     <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\JSAsteroid3.js" />
+     <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\JSBullet3.js" />
+     <Compile Include="Assets\Orthello\Examples\3 - Shooting Asteroids\JSExample3.js" />
+     <Compile Include="Assets\Orthello\Examples\4 - Follow Target View\JSExample4.js" />
+     <Compile Include="Assets\Orthello\Examples\4 - Follow Target View\JSMover4.js" />
+     <Compile Include="Assets\Orthello\Examples\5 - Creating At Runtime\JSExample5.js" />
+     <Compile Include="Assets\Orthello\Examples\6 - Physics\JSExample6.js" />
+     <Compile Include="Assets\Orthello\Examples\7 - Tweening\JSExample7.js" />
+     <Compile Include="Assets\Orthello\Examples\7 - Tweening\JSStar7_1.js" />
+     <Compile Include="Assets\Orthello\Examples\7 - Tweening\JSStar7_2.js" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_store_category.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\lorem.txt" />
+     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_cancel_button.xml" />
+     <None Include="Assets\Resources\font.txt" />
+     <None Include="Assets\Plugins\Android\res\drawable\popup_background_rect.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\green_button.xml" />
+     <None Include="Assets\Plugins\SwarmUnityPluginStructure.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_friends.xml" />
+     <None Include="Assets\Plugins\UIToolkit\Shaders\UIToolkit Premultiplied Alpha.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_featured_app_row.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_inbox_row.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\russian.txt" />
+     <None Include="Assets\Plugins\Android\res\drawable\popup_header_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\offline_error_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_lost_password.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_app_row.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\header_background.xml" />
+     <None Include="Assets\Plugins\Android\res\values\colors.xml" />
+     <None Include="Assets\Orthello\Examples\4 - Follow Target View\-orthello-config.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_header.xml" />
+     <None Include="Assets\Plugins\Android\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\swarm_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\sub_header_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_friends_row.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_leaderboard_row.xml" />
+     <None Include="Assets\Orthello\-Read-Me.txt" />
+     <None Include="Assets\Plugins\Android\res\values\styles.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_header_external.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_inventory.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_thread_row_self.xml" />
+     <None Include="Assets\Plugins\SwarmUnityREADME.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_list.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\row_background.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\orthello-font-30.txt" />
+     <None Include="Assets\Orthello\-Update-Upgrade info.txt" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\img.xml" />
+     <None Include="Assets\Shaders\Dissolving.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_thread_row_other.xml" />
+     <None Include="Assets\Plugins\UIToolkit\Shaders\UIToolkit Alpha Enabled (Default).shader" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_get_coins.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_list_section_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\contextual_grey_background.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\glyph.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_store_row.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\blue_button.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_buy_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_header.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_upgrade_guest.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_store_category_row.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_purchase_popup.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_login.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_webview.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\coin_provider_button.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\message_speech_bubble_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\footer_background.xml" />
+     <None Include="Assets\Resources\font2x.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_loading_popup.xml" />
+     <None Include="Assets\Resources\mainmenu_texturepacker.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_load_more.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\Atlases\chalk.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_dashboard_row.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\grey_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_settings.xml" />
+     <None Include="Assets\Plugins\UIToolkit\Shaders\UIToolkit No Alpha.shader" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\Multi Resolution Art\atlas.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_leaderboard_list.xml" />
+     <None Include="Assets\Orthello\Standard Assets\OT\_Base\TintedAlpha.shader" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\RotateTowards\-read-me.txt" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\Persistance\-read-me.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_featured_app_popup.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_create_account.xml" />
+     <None Include="Assets\Orthello\Examples\0 - Simple Examples\TextSprites\lorem-rus-utf8.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_thread.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_store.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\purchase_popup_tophalf.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\footer_button_background.xml" />
+     <None Include="Assets\Resources\mainmenu_texturepacker2x.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\swarm_achievement_row.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{CAD4942C-7EC1-0EC7-145C-42225E00369D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
